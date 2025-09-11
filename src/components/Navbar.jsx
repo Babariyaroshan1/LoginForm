@@ -155,6 +155,7 @@ const Navbar = ({ user, setUser }) => {
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [loading, setLoading] = useState(false);
   const profileRef = useRef(null);
 
   useEffect(() => {
@@ -196,6 +197,12 @@ const Navbar = ({ user, setUser }) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // File size check (5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size too large. Max 5MB allowed.");
+        return;
+      }
+      
       setSelectedFile(file);
       
       // Create preview
@@ -209,6 +216,8 @@ const Navbar = ({ user, setUser }) => {
 
   const handleSave = async () => {
     try {
+      setLoading(true);
+
       if (editingProfile) {
         const formData = new FormData();
         formData.append('name', profileData.name);
@@ -217,8 +226,10 @@ const Navbar = ({ user, setUser }) => {
           formData.append('profilePhoto', selectedFile);
         }
 
+        console.log("Sending update request...");
+        
         const res = await axios.put(
-          `${API_URL}/update-profile/${encodeURIComponent(user.email)}`,
+          `${API_URL}/api/update-profile/${encodeURIComponent(user.email)}`,
           formData,
           {
             headers: {
@@ -227,14 +238,17 @@ const Navbar = ({ user, setUser }) => {
           }
         );
         
+        console.log("Update response:", res.data);
+        
         setUser(res.data.user);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setSelectedFile(null);
+        alert("Profile updated successfully!");
       }
 
       if (changingPassword && profileData.oldPassword && profileData.newPassword) {
         await axios.put(
-          `${API_URL}/update-password/${encodeURIComponent(user.email)}`,
+          `${API_URL}/api/update-password/${encodeURIComponent(user.email)}`,
           { oldPassword: profileData.oldPassword, newPassword: profileData.newPassword }
         );
         alert("Password updated successfully");
@@ -244,7 +258,13 @@ const Navbar = ({ user, setUser }) => {
       setChangingPassword(false);
       setShowProfile(false);
     } catch (err) {
-      alert(err.response?.data?.message || "Error updating profile");
+      console.error("Save error:", err);
+      const errorMessage = err.response?.data?.message || 
+                          err.response?.data?.error || 
+                          "Error updating profile";
+      alert(errorMessage);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -281,7 +301,8 @@ const Navbar = ({ user, setUser }) => {
                   width: "40px", 
                   height: "40px", 
                   overflow: "hidden",
-                  padding: 0
+                  padding: 0,
+                  border: "none"
                 }}
                 onClick={() => setShowProfile(prev => !prev)}
               >
@@ -296,9 +317,14 @@ const Navbar = ({ user, setUser }) => {
                     }}
                   />
                 ) : (
-                  <span style={{ lineHeight: "40px" }}>
-                    {profileData.name?.charAt(0).toUpperCase()}
-                  </span>
+                  <div 
+                    className="bg-secondary w-100 h-100 d-flex align-items-center justify-content-center"
+                    style={{ borderRadius: "50%" }}
+                  >
+                    <span className="text-white fw-bold" style={{ lineHeight: "1" }}>
+                      {profileData.name?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
                 )}
               </button>
             ) : (
@@ -390,7 +416,9 @@ const Navbar = ({ user, setUser }) => {
               <input type="email" name="email" value={profileData.email} className="form-control" placeholder="Email" disabled />
               
               <div className="d-flex gap-2">
-                <button className="btn btn-success flex-fill" onClick={handleSave}>Save</button>
+                <button className="btn btn-success flex-fill" onClick={handleSave} disabled={loading}>
+                  {loading ? "Saving..." : "Save"}
+                </button>
                 <button className="btn btn-secondary flex-fill" onClick={cancelEdit}>Cancel</button>
               </div>
             </div>
@@ -411,7 +439,9 @@ const Navbar = ({ user, setUser }) => {
                 </button>
               </div>
               <div className="d-flex gap-2">
-                <button className="btn btn-success flex-fill" onClick={handleSave}>Save</button>
+                <button className="btn btn-success flex-fill" onClick={handleSave} disabled={loading}>
+                  {loading ? "Saving..." : "Save"}
+                </button>
                 <button className="btn btn-secondary flex-fill" onClick={() => setChangingPassword(false)}>Cancel</button>
               </div>
             </div>
