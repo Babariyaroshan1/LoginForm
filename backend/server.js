@@ -4,7 +4,7 @@ import cors from "cors";
 import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import User from "./models/User.js"; // ✅ user model ka file alag hona chahiye
+import User from "./models/User.js";
 
 dotenv.config();
 const app = express();
