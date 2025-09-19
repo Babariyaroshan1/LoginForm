@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Loginpage from "./components/Loginpage";
-import Register from "./components/register";
+import Register from "./components/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ShopByCategory from "./components/ShopByCategory";
