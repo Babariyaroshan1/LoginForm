@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { API_URL } from "../config"; 
+import API_URL from "../config";   // ✅ backend URL
 
 const Loginpage = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -73,7 +73,7 @@ const Loginpage = ({ setUser }) => {
 
         <div className="mt-3 text-center">
           <p>
-            Don't have an account? <Link to="/register">Register here</Link>
+            Don’t have an account? <Link to="/register">Register here</Link>
           </p>
         </div>
       </div>
