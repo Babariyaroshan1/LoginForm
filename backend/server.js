@@ -4,6 +4,7 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 const app = express();
@@ -104,6 +105,11 @@ app.put("/api/update-password/:email", async (req, res) => {
         console.error(err);
         res.status(500).json({ message: "Server error" });
     }
+});
+
+// Basic route
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
 });
 
 // Start server
