@@ -6,12 +6,13 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import User from "./models/User.js";
 
+
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ Register
+// ✅ Register route
 app.post("/api/register", async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -27,37 +28,23 @@ app.post("/api/register", async (req, res) => {
 
         res.status(201).json({ message: "User registered successfully", user: { name, email } });
     } catch (err) {
-        console.error("Register error:", err);
         res.status(500).json({ message: "Server error", error: err.message });
     }
 });
 
-// ✅ Login
+// ✅ Login route
 app.post("/api/login", async (req, res) => {
     try {
-        console.log("Login hit with data:", req.body);
-
         const { email, password } = req.body;
         const user = await User.findOne({ email });
-        console.log("User found:", user);
 
-        if (!user) {
-            return res.status(400).json({ message: "User not found" });
-        }
+        if (!user) return res.status(400).json({ message: "User not found" });
 
         const isMatch = await bcrypt.compare(password, user.password);
-        console.log("Password match:", isMatch);
+        if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
 
-        if (!isMatch) {
-            return res.status(400).json({ message: "Invalid credentials" });
-        }
-
-        res.json({
-            message: "Login successful",
-            user: { id: user._id, name: user.name, email: user.email },
-        });
+        res.json({ message: "Login successful", user: { id: user._id, name: user.name, email: user.email } });
     } catch (err) {
-        console.error("Login error:", err);
         res.status(500).json({ message: "Server error", error: err.message });
     }
 });
