@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config"; 
 
 const Loginpage = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // ✅ small s
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login", {
+      const res = await axios.post(`${API_URL}/login`, {
         email,
         password,
       });
@@ -49,7 +50,7 @@ const Loginpage = ({ setUser }) => {
             <label className="form-label">Password</label>
             <div className="input-group">
               <input
-                type={showPassword ? "text" : "password"} 
+                type={showPassword ? "text" : "password"}
                 className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
