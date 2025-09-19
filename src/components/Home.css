@@ -1,0 +1,36 @@
+.slider-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* #carouselExampleCaptions {
+  width: 80%;   
+} */
+
+.slider-img {
+  width: 100%;
+  height: 80vh; 
+  object-fit: cover; 
+  border-radius: 10px; 
+}
+.custom-caption {
+  position: absolute;
+  top: 20px;      
+  left: 20px;     
+  text-align: left;
+  color: #fff;    
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;  
+  background-color: #ffffff;
+}
+
+.carousel-indicators .active {
+  background-color: #ff0000;
+}
