@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import API_URL from "../config";   // ✅ ab config se api url ayega
+import API_URL from "../config";   
 
 const Register = () => {
   const [name, setName] = useState("");
