@@ -5,19 +5,45 @@ import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import User from "./models/User.js";
+import multer from "multer";
 
 dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// -----------------------------
+// CORS Middleware
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://your-frontend-domain.com"
+];
+
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}));
+
+// Handle preflight requests
+app.options("*", cors());
+
 
 // -----------------------------
+// Body parser
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+
+// NEW: Multer setup for file uploads
+const storage = multer.memoryStorage(); // store uploaded files in memory
+const upload = multer({
+    storage,
+    limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
+});
+
+
+
 // Routes
-// -----------------------------
-
+// --------------------
 // Register
 app.post("/api/register", async (req, res) => {
     try {
@@ -56,15 +82,23 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
-// Update Profile (name & photo)
-app.put("/api/update-profile/:email", async (req, res) => {
+
+// Update Profile (with Multer) 
+app.put("/api/update-profile/:email", upload.single("photo"), async (req, res) => {
     try {
         const { email } = req.params;
-        const { name, photo } = req.body;
+        const { name } = req.body;
+
+        // Convert uploaded file to base64 if exists
+        let photo;
+        if (req.file) {
+            photo = req.file.buffer.toString("base64");
+        }
 
         const user = await User.findOneAndUpdate(
             { email },
-            { name, photo },
+            // update photo only if uploaded
+            { name, ...(photo && { photo }) },
             { new: true }
         );
 
@@ -102,9 +136,8 @@ app.get("/", (req, res) => {
     res.send("API is working");
 });
 
-// -----------------------------
+
 // Start Server
-// -----------------------------
 const PORT = process.env.PORT || 5000;
 
 mongoose
