@@ -211,7 +211,8 @@ const Navbar = ({ user, setUser }) => {
         );
 
         setUser(resProfile.data.user);
-        localStorage.setItem("user", JSON.stringify(resProfile.data.user));
+        localStorage.setItem("user", JSON.stringify(resProfile.data.user.photo));
+         alert("profile updated successfully");
       }
 
       // Update password separately
