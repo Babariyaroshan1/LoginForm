@@ -1,0 +1,12 @@
+.css-1xjok4w .swoosh-svg {
+    -webkit-transform: scale(1.33);
+    -ms-transform: scale(1.33);
+    transform: scale(1.33);
+    height: 100%;
+    font-size: 500px;
+    width: 100%;
+}
+
+.navbar-link{
+    font-weight: 500;
+}

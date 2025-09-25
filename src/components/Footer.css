@@ -1,10 +1,15 @@
-footer a {
-  text-decoration: none !important;
-  color: black !important;
+.footer-page-firsttext{
+  padding-top: 50px;
 }
 
-footer a:hover {
-  color: #dc3545;
+
+footer a {
+  text-decoration: none !important;
+  color: rgb(160, 160, 160) !important
+}
+
+.head-link{
+  color: #111111;
 }
 
 .subscribe-drawer {
@@ -37,7 +42,6 @@ footer a:hover {
 .nb-button:hover {
   background-color: #cf0a2c;
   color: white;
-  /* border-color: #cf0a2c; */
 }
 
 .subscribe-drawer.open {
@@ -64,10 +68,29 @@ footer ul li {
 }
 
 .footer-link {
-  color: black !important;
-  text-decoration: underline !important; 
+  color:#707072 !important;
 }
 
 .footer-link:hover {
-  color: #dc3545 !important; 
+  text-decoration: underline !important;   
+  color: #3e3e3e !important; 
+}
+
+
+
+.footer-link-social {
+  color:#000000 !important;
+}
+
+.footer-link-social:hover {
+  text-decoration: underline !important;   
+  color: #575757 !important; 
+}
+.css-1xjok4w .swoosh-svg {
+    -webkit-transform: scale(1.33);
+    -ms-transform: scale(1.33);
+    transform: scale(1.33);
+    height: 100%;
+    font-size: 500px;
+    width: 100%;
 }

@@ -17,82 +17,81 @@ function FooterPage() {
 
   return (
     <>
-      <footer className="bg-white text-dark">
-        {/* <div className="bg-dark text-white text-center py-3 d-flex justify-content-center align-items-center">
+      <footer className=" text-light footer-page-firsttext" >
+        <div className="bg-dark text-white text-center py-3 d-flex justify-content-center align-items-center">
           <span className="me-3">Be the first to know about new arrivals</span>
-          <button className="btn btn-danger" onClick={() => setIsDrawerOpen(true)}>
+          <button className="btn btn-primary" onClick={() => setIsDrawerOpen(true)}>
             Sign up
           </button>
-        </div> */}
+        </div>
 
-        <div className="container py-5">
+        <div className="container py-5  ">
           <div className="row">
             <div className="col-6 col-md-2 mb-3 ">
-              <h5 className="fw-bold mb-3">Help</h5>
-              <ul className="list-unstyled small">
-               <li><Link className="navbar-brand fs-6" to="/Home">Home</Link></li>
-               <li><Link className="navbar-brand fs-6" to="#">About Us</Link></li>
-               <li><Link className="navbar-brand fs-6" to="#">Service</Link></li>
-               <li><Link className="navbar-brand fs-6" to="#">Career</Link></li>
-               <li><Link className="navbar-brand fs-6" to="#">Blog</Link></li>
-               <li><Link className="navbar-brand fs-6" to="#">Contact Us</Link></li>    
+              <h5 className="fw-bold mb-3 head-link">Help</h5>
+              <ul className="list-unstyled small ">
+                <li><Link className="navbar-brand fs-6 footer-link " to="/Home">Home</Link></li>
+                <li><Link className="navbar-brand fs-6 footer-link " to="#">About Us</Link></li>
+                <li><Link className="navbar-brand fs-6 footer-link " to="#">Service</Link></li>
+                <li><Link className="navbar-brand fs-6 footer-link " to="#">Career</Link></li>
+                <li><Link className="navbar-brand fs-6 footer-link " to="#">Blog</Link></li>
+                <li><Link className="navbar-brand fs-6 footer-link " to="#">Contact Us</Link></li>
               </ul>
             </div>
 
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="fw-bold mb-3">Shop</h5>
+              <h5 className="fw-bold mb-3 head-link">Shop</h5>
               <ul className="list-unstyled small">
-                <li><Link>Find a store</Link></li>
-                <li><Link>Gift cards</Link></li>
-                <li><Link>Shipping information</Link></li>
-                <li><Link>Sale exclusions</Link></li>
-                <li><Link>Custom uniforms</Link></li>
-                <li><Link>Reconsidered</Link></li>
+                <li><Link className="footer-link ">Find a store</Link></li>
+                <li><Link className="footer-link ">Gift cards</Link></li>
+                <li><Link className="footer-link ">Shipping information</Link></li>
+                <li><Link className="footer-link ">Sale exclusions</Link></li>
+                <li><Link className="footer-link ">Custom uniforms</Link></li>
+                <li><Link className="footer-link ">Reconsidered</Link></li>
               </ul>
             </div>
 
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="fw-bold mb-3">About Us</h5>
+              <h5 className="fw-bold mb-3 head-link">About Us</h5>
               <ul className="list-unstyled small">
-                <li><Link>Our Purpose</Link></li>
-                <li><Link>Responsible leadership</Link></li>
-                <li><Link>New Balance Foundation</Link></li>
-                <li><Link>Careers</Link></li>
-                <li><Link>The TRACK at New Balance</Link></li>
-                <li><Link>Press box</Link></li>
-                <li><Link>Medical Plan Information</Link></li>
+                <li><Link className="footer-link ">Our Purpose</Link></li>
+                <li><Link className="footer-link ">Responsible leadership</Link></li>
+                <li><Link className="footer-link ">New Balance Foundation</Link></li>
+                <li><Link className="footer-link ">Careers</Link></li>
+                <li><Link className="footer-link ">The TRACK at New Balance</Link></li>
+                <li><Link className="footer-link ">Press box</Link></li>
+                <li><Link className="footer-link ">Medical Plan Information</Link></li>
               </ul>
             </div>
 
             <div className="col-6 col-md-2 mb-3">
-              <h5 className="fw-bold mb-3">For You</h5>
+              <h5 className="fw-bold mb-3 head-link">For You</h5>
               <ul className="list-unstyled small">
-                <li><Link>Special discounts</Link></li>
-                <li><Link>Idea submission</Link></li>
-                <li><Link>Affiliate program</Link></li>
-                <li><Link>Counterfeit products</Link></li>
-                <li><Link>Accessibility statement</Link></li>
+                <li><Link className="footer-link ">Special discounts</Link></li>
+                <li><Link className="footer-link ">Idea submission</Link></li>
+                <li><Link className="footer-link ">Affiliate program</Link></li>
+                <li><Link className="footer-link ">Counterfeit products</Link></li>
+                <li><Link className="footer-link ">Accessibility statement</Link></li>
               </ul>
             </div>
 
             <div className="col-12 col-md-4 mb-4 text-center text-md-start">
-              <h3 className="fw-bold mb-3 fst-italic ">Fearlessly Independent</h3>
-              {/* <img
-                src="https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw3de6aa04/images/homepage/footer/logo.svg"
-                alt="New Balance Logo"
-                width="50"
-                className="mb-3"
-              />
-              <p className="small footer-text">
+              <h3 className="fw-bold mb-3  text-dark fst-italic ">Fearlessly Independent</h3>
+              <Link className="navbar-brand fw-bold text-dark" to="#" style={{ fontFamily: "Verdana, Geneva, sans-serif", }}>
+                <svg aria-hidden="true" className="swoosh-svg" focusable="false" viewBox="0 0 24 24" role="img" width="100" height="80" fill="none">
+                  <path fill="currentColor" fillRule="evenodd" d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z" clipRule="evenodd" />
+                </svg>
+              </Link>
+              <p className="small  text-dark footer-text">
                 Independent since 1906, we empower people through sport and craftsmanship
                 to create positive change in communities around the world.
-              </p> */}
+              </p>
               <div className="d-flex justify-content-md-start gap-3 fs-4 mt-3">
-                <Link to="#"><FaInstagram /></Link>
-                <Link to="#"><FaXTwitter /></Link>
-                <Link to="#"><FaYoutube /></Link>
-                <Link to="#"><FaPinterest /></Link>
-                <Link to="#"><FaTiktok /></Link>
+                <Link to="#" className="footer-link-social"><FaInstagram /></Link>
+                <Link to="#" className="footer-link-social"><FaXTwitter /></Link>
+                <Link to="#" className="footer-link-social"><FaYoutube /></Link>
+                <Link to="#" className="footer-link-social"><FaPinterest /></Link>
+                <Link to="#" className="footer-link-social"><FaTiktok /></Link>
               </div>
             </div>
           </div>
@@ -180,3 +179,6 @@ function FooterPage() {
 }
 
 export default FooterPage;
+
+
+

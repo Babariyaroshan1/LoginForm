@@ -1,36 +1,43 @@
-.slider-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-}
-
-/* #carouselExampleCaptions {
-  width: 80%;   
+/* .home{
+       background: linear-gradient(148deg, #3889ff 0%, #7bb7ec 50%, #1293f1 100%);
 } */
 
-.slider-img {
-  width: 100%;
-  height: 80vh; 
-  object-fit: cover; 
-  border-radius: 10px; 
-}
-.custom-caption {
-  position: absolute;
-  top: 20px;      
-  left: 20px;     
-  text-align: left;
-  color: #fff;    
-  padding: 10px 20px;
-  border-radius: 8px;
+.hero-section {
+  height: 70vh;
+  background: url("https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_2078,c_limit/e7d6387f-361e-480d-ba76-272a936b4a6e/nike-just-do-it.jpg")
+    center/cover no-repeat;
 }
 
-.carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;  
+.subtitle {
+  font-size: 1.2rem !important;
+  font-weight: 400!important;
+  margin-bottom: 10px !important;
+  font-family: 'Oswald', sans-serif !important;
+  color: #111 !important;
+}
+
+.title {
+  font-family: 'Anton', sans-serif !important; 
+  font-size: 4.75rem !important;
+  text-transform: uppercase!important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 25px !important;
+  color: #111;
+}
+
+.shop-btn1 {
+  background-color: #111;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.shop-btn1:hover {
   background-color: #ffffff;
-}
-
-.carousel-indicators .active {
-  background-color: #ff0000;
+  color: #000000;
+  border: #000000 solid 2px;
 }

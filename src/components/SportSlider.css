@@ -1,0 +1,66 @@
+.sport-page {
+  padding-bottom: 56px;
+  padding-top: 50px;
+}
+
+.sport-slider-container {
+  margin-left: 100px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.arrow-btn {
+  background: white;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 6px 12px;
+  transition: background 0.2s;
+}
+
+.arrow-btn:hover {
+  background: #f0f0f0;
+}
+
+.slider-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.slider {
+  display: flex;
+  gap: 30px;
+}
+
+.card {
+  min-width: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+}
+
+.tag {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
