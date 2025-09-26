@@ -7,6 +7,20 @@
   background: url("https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_2078,c_limit/e7d6387f-361e-480d-ba76-272a936b4a6e/nike-just-do-it.jpg")
     center/cover no-repeat;
 }
+.hero-supertext{
+background-color: whitesmoke;
+  align-items: center;
+  font-size: 17px!important;
+  padding: 10px;
+}
+.hero-shoptext{
+font-size: smaller;
+line-height: 1;
+
+}
+.hero-shoptextuper{
+  font-weight: 400;
+}
 
 .subtitle {
   font-size: 1.2rem !important;
