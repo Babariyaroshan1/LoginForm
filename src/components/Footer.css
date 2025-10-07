@@ -33,14 +33,14 @@ footer a {
   font-weight: 700;
   padding: .75rem 1.5rem;
   border-radius: .25rem;
-  border: 2px solid #cf0a2c;
-  color: #cf0a2c;
+  border: 2px solid #0d6efd;
+  color: #0d6efd;
   background-color: transparent;
   transition: all .2s;
 }
 
 .nb-button:hover {
-  background-color: #cf0a2c;
+  background-color: #0d6efd;
   color: white;
 }
 
@@ -73,7 +73,7 @@ footer ul li {
 
 .footer-link:hover {
   text-decoration: underline !important;   
-  color: #3e3e3e !important; 
+  color: #2238de !important; 
 }
 
 

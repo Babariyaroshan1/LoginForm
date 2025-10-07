@@ -10,3 +10,6 @@
 .navbar-link{
     font-weight: 500;
 }
+.profile-card {
+  width: 320px !important;
+}

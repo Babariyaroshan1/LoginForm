@@ -10,6 +10,8 @@ import Poster from "./components/Poster";
 import SportSlider from "./components/SportSlider";
 import Featured from "./components/Featured";
 import ThirdKitsSlider from "./components/ThirdKitsSlider";
+import ThirdKitsViewAll from "./components/ThirdKitsViewAll";
+import ForgotPassword from "./components/ForgotPassword";
 
 const App = () => {
   const [user, setUser] = React.useState(() => {
@@ -23,24 +25,26 @@ const App = () => {
       <main className="">
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<Loginpage setUser={setUser} />} />
           <Route path="/loginpage" element={<Loginpage setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {user && (
             <>
+              {/* Home Routes */}
               <Route path="/Home" element={<Home />} />
-              <Route path="/Home" element={<ThirdKitsSlider />} />
-              <Route path="/Home" element={<SportSlider />} />
-              <Route path="/Home" element={<Featured />} />
-              <Route path="/Home" element={<ShopByCategory />} />
-              <Route path="/Home" element={<Poster />} />
-              <Route path="/Home" element={<Footer />} />
+              <Route path="/Home/thirdkits" element={<ThirdKitsSlider />} />
+              <Route path="/Home/sport" element={<SportSlider />} />
+              <Route path="/Home/featured" element={<Featured />} />
+              <Route path="/Home/category" element={<ShopByCategory />} />
+              <Route path="/Home/poster" element={<Poster />} />
+              <Route path="/Home/footer" element={<Footer />} />
+              <Route path="/third-kits" element={<ThirdKitsViewAll />} />
+
             </>
           )}
         </Routes>
       </main>
-
     </>
   );
 };

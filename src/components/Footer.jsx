@@ -77,11 +77,15 @@ function FooterPage() {
 
             <div className="col-12 col-md-4 mb-4 text-center text-md-start">
               <h3 className="fw-bold mb-3  text-dark fst-italic ">Fearlessly Independent</h3>
-              <Link className="navbar-brand fw-bold text-dark" to="#" style={{ fontFamily: "Verdana, Geneva, sans-serif", }}>
+              {/* <Link className="navbar-brand fw-bold text-dark" to="#" style={{ fontFamily: "Verdana, Geneva, sans-serif", }}>
                 <svg aria-hidden="true" className="swoosh-svg" focusable="false" viewBox="0 0 24 24" role="img" width="100" height="80" fill="none">
                   <path fill="currentColor" fillRule="evenodd" d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z" clipRule="evenodd" />
                 </svg>
+              </Link> */}
+              <Link className="navbar-brand fw-bold" to="/home">
+                <img width="95px" height="80px" src="/logo-removebg-preview.png" alt="" />
               </Link>
+          
               <p className="small  text-dark footer-text">
                 Independent since 1906, we empower people through sport and craftsmanship
                 to create positive change in communities around the world.
@@ -104,11 +108,15 @@ function FooterPage() {
         </div>
 
         <div className="d-flex justify-content-center mt-4">
-          <img
-            src="https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw3de6aa04/images/homepage/footer/logo.svg"
-            alt="NB Logo"
-            width="60"
-          />
+          {/* <Link className="navbar-brand fw-bold text-dark" to="#" style={{ fontFamily: "Verdana, Geneva, sans-serif", }}>
+            <svg aria-hidden="true" className="swoosh-svg" focusable="false" viewBox="0 0 24 24" role="img" width="100" height="80" fill="none">
+              <path fill="currentColor" fillRule="evenodd" d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z" clipRule="evenodd" />
+            </svg>
+          </Link> */}
+
+          <Link className="navbar-brand fw-bold" to="/home">
+            <img width="95px" height="80px" src="/logo-removebg-preview.png" alt="" />
+          </Link>
         </div>
 
         <div className="subscribe-title mx-auto mt-4 mb-5 text-center">
@@ -126,24 +134,11 @@ function FooterPage() {
 
         {status === "form" && (
           <form className="mt-4" onSubmit={handleSubscribe}>
-            <label className="fw-bold small">Enter Email Address</label>
-            <input
-              type="email"
-              className="form-control mb-3 border-danger"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button
-              className="nb-button button-secondary w-100 my-3"
-              type="submit"
-            >
-              Subscribe
-            </button>
+            <label className="fw-bold small" >  Enter Email Address</label>
+            <input name="email" type="email" className="form-control mb-3 border-primary" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <button className="nb-button button-secondary w-100 my-3" type="submit">  Subscribe</button>
           </form>
         )}
-
         {status === "subscribed" && (
           <div className="mt-4 text-center">
             <p className="text-muted">{email}</p>
@@ -160,13 +155,7 @@ function FooterPage() {
 
         {status === "subscribed" && (
           <div className="mt-3">
-            <button
-              className="btn btn-link text-decoration-underline text-dark p-0"
-              onClick={() => {
-                setStatus("form");
-                setEmail("");
-              }}
-            >
+            <button className="btn btn-link text-decoration-underline text-dark p-0" onClick={() => { setStatus("form"); setEmail(""); }}>
               Unsubscribe
             </button>
           </div>
@@ -179,6 +168,3 @@ function FooterPage() {
 }
 
 export default FooterPage;
-
-
-

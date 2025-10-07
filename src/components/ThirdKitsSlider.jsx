@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ThirdKitsSlider.css";
 
 const products = [
@@ -48,6 +49,7 @@ const products = [
 
 const ThirdKitsSlider = () => {
   const sliderRef = useRef(null);
+  const navigate = useNavigate();     
 
   const scroll = (direction) => {
     if (direction === "left") {
@@ -60,9 +62,13 @@ const ThirdKitsSlider = () => {
   return (
     <div className="thirdkits-container">
       <div className="thirdkits-header">
-        <h2 className="fw-bold fs-3 mb-4"  style={{ fontFamily: "'Oswald', sans-serif" }}>Shop Third Kits</h2>
+        <h2 className="fw-bold fs-3 mb-4" style={{ fontFamily: "'Oswald', sans-serif" }}>Shop Third Kits</h2>
         <div className="actions">
-          <button className="view-all">View All</button>
+          <div className="actions">
+          <button className="view-all" onClick={() => navigate("/third-kits")}>
+            View All
+          </button>
+          </div>
           <button className="arrow" onClick={() => scroll("left")}>←</button>
           <button className="arrow" onClick={() => scroll("right")}>→</button>
         </div>
